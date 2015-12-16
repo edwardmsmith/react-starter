@@ -1,0 +1,7 @@
+/node_modules/
+/dist/app.js
+/dist/app.css
+/dist/vendors.js
+.sass-cache
+.DS_Store
+npm-debug.log
