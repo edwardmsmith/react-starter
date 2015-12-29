@@ -17,8 +17,8 @@ describe('Heading', () => {
 		expect(headingNode.textContent).toEqual('Test');
 	});
 
-	it('Is an H1 tag', () => {
-		expect(headingNode.tagName).toEqual('H1');
+	it('Is an H2 tag', () => {
+		expect(headingNode.tagName).toEqual('H2');
 	});
 	
 })
