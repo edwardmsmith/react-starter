@@ -1,23 +1,22 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import Heading from '../components/heading'
 import Counter from '../components/counter'
-import { increment, decrement } from '../actions'
+import * as Actions from '../actions'
 
 class App extends Component {
-
     render() {
-        const { dispatch, counter, children } = this.props
+        const { increment, decrement, counter, children } = this.props
         return (
           <div>
             <Heading>Counter</Heading>
             <Counter 
                 counter = {counter}
                 onIncrement = { () => 
-                    dispatch(increment()) }
+                    increment() }
                 onDecrement = { () =>
-                    dispatch(decrement()) }
-            />
+                    decrement() } />
             {children}
           </div>
         );
@@ -30,4 +29,7 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps (dispatch) {
+    return bindActionCreators(Actions, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
