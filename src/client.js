@@ -1,35 +1,23 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 
-import thunkMiddleware from 'redux-thunk';
+import { Provider } from 'react-redux';
 
-import { Provider, connect } from 'react-redux';
-
-import testReducer from './reducers/test'
+import rootReducer from './reducers'
 
 import App from './containers/app';
 
 import './style/style.scss';
 
-// Combine reducers
-const reducer = combineReducers({
-  testReducer
-});
-
-// Apply any middleware
-const createStoreWithMiddleware = applyMiddleware(
-  thunkMiddleware
-)(createStore);
-
 // Create the store
-const store = createStoreWithMiddleware(reducer);
+const store = createStore(rootReducer);
 
 class Root extends Component {
   render() {
     return (
     <Provider store={store}>
-      <App><p>Foo</p></App>
+      <App />
     </Provider>
     );
   }

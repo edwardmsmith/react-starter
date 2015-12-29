@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest",
+    "test:watch": "npm test -- --watch",
     "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js"
   },
   "author": "Edward Smith",
