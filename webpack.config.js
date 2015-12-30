@@ -9,14 +9,14 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: "dev_bundle.js",
+        filename: 'dev_bundle.js',
         publicPath: '/dist/'
     },
     module: {
         loaders: [
             { test: /\.js$/, 
               exclude: /node_modules/, 
-              loaders: ['react-hot', "babel-loader"],
+              loaders: ['react-hot', 'babel-loader'],
               include: path.join(__dirname, 'src')
             },
             { test: /\.scss$/, 
